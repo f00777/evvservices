@@ -1,0 +1,308 @@
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{lmodern}
+\usepackage{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, shadows, fit}
+
+\geometry{
+  left=2.2cm,
+  right=2.2cm,
+  top=2.4cm,
+  bottom=2.4cm
+}
+
+\definecolor{foundersBlue}{HTML}{003B73}
+\definecolor{foundersGray}{HTML}{4A5568}
+\definecolor{lightGray}{HTML}{F3F6F8}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=foundersBlue,
+  urlcolor=foundersBlue,
+  pdftitle={Cotizacion tecnica y economica - VioERP para EVV Services},
+  pdfauthor={4Founders IT Services SpA.}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlength{\headheight}{18pt}
+\renewcommand{\arraystretch}{1.22}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\raisebox{-0.2\height}{\includegraphics[height=13pt]{logo4F.png}}\hspace{0.25cm}\textbf{4Founders IT Services SpA.}}
+\rhead{Propuesta Técnica y Económica --- VioERP}
+\cfoot{Página \thepage\ de \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcommand{\client}{EVV Services}
+\newcommand{\project}{Implementación de Sistema ERP (VioERP)}
+\newcommand{\projectsubtitle}{Gestión de Clientes, Cuentas Corrientes y Órdenes de Compra}
+\newcommand{\docdate}{20 de agosto de 2026}
+\newcommand{\netamount}{\$100.000 CLP + IVA / mes}
+\newcommand{\ivaamount}{\$19.000 CLP / mes}
+\newcommand{\totalamount}{\$119.000 CLP / mes}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+  \thispagestyle{empty}
+  \vspace*{0.2cm}
+
+  \noindent
+  \begin{minipage}[b]{0.65\textwidth}
+    \includegraphics[height=1.6cm]{logo4F.png}\\[0.25cm]
+    {\Large \textbf{4Founders IT Services SpA.}}\\[0.1cm]
+    {\small \href{https://www.4founders.cl}{www.4founders.cl}}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[b]{0.3\textwidth}
+    \raggedleft
+    {\large \docdate}
+  \end{minipage}
+
+  \vspace{1.0cm}
+
+  {\color{foundersBlue}\rule{\textwidth}{1.2pt}}
+
+  \vspace{0.6cm}
+
+  {\Huge \textbf{Cotización Técnica y Económica}}
+
+  \vspace{0.4cm}
+
+  {\LARGE \textbf{\project}}
+
+  \vspace{0.3cm}
+
+  {\large \textit{\projectsubtitle}}
+
+  \vspace{0.6cm}
+
+  {\color{foundersBlue}\rule{\textwidth}{1.2pt}}
+
+  \vfill
+
+  \begin{tabularx}{\textwidth}{>{\bfseries}p{4.6cm}X}
+    Cliente & \client \\
+    Proveedor & 4Founders IT Services SpA. \\
+    Solución & VioERP (Modalidad SaaS) \\
+    Usuarios iniciales & 1 usuario perfil administrador \\
+    Período de prueba & 1 semana sin costo (7 días corridos) \\
+    Suscripción mensual & \netamount \\
+    Validez de la oferta & 15 días corridos desde la emisión \\
+  \end{tabularx}
+
+  \vspace{1.4cm}
+
+  {\small
+  Documento preparado para evaluación comercial de EVV Services. La propuesta técnica y económica contenida en este documento
+  es de uso reservado para el análisis del proyecto de implementación de VioERP.
+  }
+\end{titlepage}
+\hypersetup{pageanchor=true}
+\setcounter{page}{1}
+
+% ── ÍNDICE DE CONTENIDOS ───────────────────────────────────────────────────────
+\newpage
+\thispagestyle{fancy}
+
+{\color{foundersBlue}\rule{\textwidth}{1.2pt}}
+\vspace{0.4cm}
+
+{\Large \textbf{Índice de Contenidos}}
+
+\vspace{0.3cm}
+{\color{foundersBlue}\rule{\textwidth}{0.4pt}}
+
+\vspace{0.4cm}
+
+{
+  \hypersetup{linkcolor=foundersBlue}
+  \renewcommand{\contentsname}{}
+  \vspace{-1.2cm}
+  \tableofcontents
+}
+
+\vfill
+{\color{foundersBlue}\rule{\textwidth}{0.4pt}}
+
+% ── CUERPO DE LA COTIZACIÓN ───────────────────────────────────────────────────
+
+\newpage
+\section{Antecedentes y Requerimientos de EVV Services}
+
+EVV Services requiere centralizar y estructurar la gestión operacional de su negocio. La operación diaria demanda una herramienta eficiente que permita llevar un control riguroso de las interacciones comerciales, compras y compromisos financieros de los clientes.
+
+Específicamente, el sistema a implementar responde a las siguientes necesidades clave:
+\begin{enumerate}[leftmargin=1.4em]
+  \item \textbf{Gestión Integral de Clientes:} Registro unificado de la ficha de clientes, datos de contacto, cuentas asociadas y estado de pagos.
+  \item \textbf{Generación de Órdenes de Compra:} Registro y creación automatizada de órdenes de compra para coordinar pedidos y operaciones comerciales.
+  \item \textbf{Historial Operacional Completo:} Módulo de trazabilidad para auditar el historial de compras realizadas por clientes, pagos recibidos y pagos efectuados a proveedores.
+  \item \textbf{Cuentas Corrientes y Control de Deuda en Tiempo Real:} Visualización inmediata de la cuenta corriente de cada cliente y del saldo pendiente de cobro para facilitar la gestión de cobranza.
+\end{enumerate}
+
+\section{Solución Propuesta: VioERP}
+
+Para cubrir los requerimientos descritos, 4Founders propone la implementación de \textbf{VioERP}, solución desarrollada y gestionada internamente por nuestro equipo. VioERP se encuentra actualmente desplegado y operativo en múltiples empresas, destacando por ser un sistema intuitivo, de rápida adopción y enfocado en la eficiencia operativa.
+
+\subsection{Diagrama del Flujo Operativo}
+
+\begin{center}
+\begin{tikzpicture}[
+  node distance=1.0cm and 0.8cm,
+  box/.style={
+    rectangle, 
+    rounded corners=3pt, 
+    draw=foundersBlue, 
+    fill=foundersBlue!5, 
+    thick,
+    text width=6.8cm, 
+    align=left, 
+    minimum height=1.0cm,
+    font=\small\sffamily,
+    drop shadow={opacity=0.15, shadow xshift=1pt, shadow yshift=-1pt}
+  },
+  action/.style={
+    rectangle, 
+    rounded corners=3pt, 
+    draw=foundersGray, 
+    fill=white, 
+    thick,
+    text width=6.8cm, 
+    align=left, 
+    minimum height=1.0cm,
+    font=\small\sffamily,
+    drop shadow={opacity=0.1, shadow xshift=1pt, shadow yshift=-1pt}
+  },
+  arrow/.style={
+    -{Stealth[scale=1.2]}, 
+    thick, 
+    draw=foundersGray
+  }
+]
+
+\node (clients) [box] {\textbf{1. Ficha de Clientes y Contactos}\\[0.05cm] \scriptsize Datos centralizados, RUT, cuentas y datos de contacto.};
+\node (orders) [action, below=0.6cm of clients] {\textbf{2. Órdenes de Compra y Pedidos}\\[0.05cm] \scriptsize Generación automática de órdenes de compra y registro de pedidos.};
+\node (history) [box, below=0.6cm of orders] {\textbf{3. Historial Unificado de Movimientos}\\[0.05cm] \scriptsize Registro de compras, pagos recibidos de clientes y pagos a proveedores.};
+\node (cc) [action, below=0.6cm of history] {\textbf{4. Cuentas Corrientes en Tiempo Real}\\[0.05cm] \scriptsize Control de saldo adeudado por cliente y reporte comercial.};
+
+\draw [arrow] (clients) -- (orders);
+\draw [arrow] (orders) -- (history);
+\draw [arrow] (history) -- (cc);
+
+\end{tikzpicture}
+\end{center}
+
+\section{Alcance de los Módulos Incluidos}
+
+\begin{longtable}{>{\bfseries}p{4.5cm}p{11.0cm}}
+\toprule
+Módulo & Descripción de Funcionalidades \\
+\midrule
+\endhead
+
+Gestión de Clientes y Contactos &
+\begin{itemize}[leftmargin=1.2em, nosep]
+  \item Creación, edición y administración de fichas de clientes.
+  \item Centralización de información de contacto comercial.
+  \item Asociación de registros y cuentas corrientes por cliente.
+\end{itemize} \\
+\midrule
+
+Órdenes de Compra y Pedidos &
+\begin{itemize}[leftmargin=1.2em, nosep]
+  \item Registro de solicitudes y generación automática de órdenes de compra.
+  \item Control de montos y especificaciones de pedidos comerciales.
+  \item Vinculación directa entre órdenes de compra, clientes y pagos.
+\end{itemize} \\
+\midrule
+
+Historial de Movimientos &
+\begin{itemize}[leftmargin=1.2em, nosep]
+  \item Vista consolidada de auditoría para revisar compras de clientes.
+  \item Registro histórico de pagos recibidos e ingresos.
+  \item Registro histórico de pagos salidos a proveedores.
+\end{itemize} \\
+\midrule
+
+Gestión de Cuentas Corrientes &
+\begin{itemize}[leftmargin=1.2em, nosep]
+  \item Visualización del estado de cuenta corriente individual por cliente.
+  \item Reporte en tiempo real de saldos adeudados y montos por cobrar.
+  \item Herramienta de apoyo para la gestión proactiva de cobros.
+\end{itemize} \\
+\bottomrule
+\end{longtable}
+
+\section{Roadmap de Evolución Futura}
+
+VioERP se proporciona como una plataforma viva. De acuerdo con las necesidades emergentes de EVV Services, se mantendrá abierto un roadmap de desarrollo evolutivo para añadir nuevas funcionalidades.
+
+\begin{itemize}[leftmargin=1.2em]
+  \item \textbf{Módulo de Facturación Electrónica e IVA:} Desarrollo e integración futura para la emisión automática de facturas de compra/venta y cálculo de IVA, el cual podrá incorporarse a VioERP según las prioridades de EVV Services.
+  \item \textbf{Desarrollos a medida:} La cotización de nuevas funcionalidades personalizadas fuera del estándar actual del ERP se formalizará en propuestas o cotizaciones independientes posteriores.
+\end{itemize}
+
+\section{Propuesta Económica y Condiciones del Servicio}
+
+\subsection{Estructura de Precios}
+
+\begin{table}[htbp]
+\centering
+\begin{tabularx}{\textwidth}{X c >{\raggedleft\arraybackslash}p{3.5cm}}
+\toprule
+\textbf{Concepto} & \textbf{Usuarios} & \textbf{Monto Neto Mensual} \\
+\midrule
+Período de prueba (1 semana / 7 días corridos) & 1 Administrador & \$0 CLP \\
+Licencia de Uso VioERP (Suscripción Mensual) & 1 Administrador & \$100.000 CLP \\
+\midrule
+\textbf{Subtotal Neto} & & \textbf{\$100.000 CLP} \\
+IVA (19\%) & & \$19.000 CLP \\
+\textbf{Total Mensual a Pagar} & & \textbf{\$119.000 CLP} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Condiciones del Período de Prueba}
+\begin{itemize}[leftmargin=1.2em]
+  \item \textbf{Duración:} 1 semana gratuita (7 días corridos a partir del envío de las credenciales).
+  \item \textbf{Objetivo:} Permitir que EVV Services pruebe el sistema en condiciones reales y confirme su utilidad operativa antes de iniciar la facturación.
+  \item \textbf{Sin compromiso:} Si tras la semana de prueba EVV Services decide no continuar, no se generará ningún cobro.
+\end{itemize}
+
+\subsection{Condiciones Comerciales Generales}
+\begin{itemize}[leftmargin=1.2em]
+  \item Los valores mostrados están expresados en pesos chilenos (CLP) y desglosan el 19\% de IVA del servicio de suscripción.
+  \item El servicio se factura de manera mensual por adelantado una vez concluida exitosamente la semana de prueba.
+  \item Incluye soporte técnico operativo, respaldos de información e infraestructura en la nube.
+  \item Esta cotización tiene una validez de 15 días corridos desde su emisión.
+\end{itemize}
+
+\vfill
+
+\begin{center}
+\includegraphics[height=1.8cm]{logo4F.png}\\[0.2cm]
+{\color{foundersBlue}\rule{0.7\textwidth}{0.8pt}}\\
+\vspace{0.2cm}
+\textbf{4Founders IT Services SpA.}\\
+Desarrollo de software, integración de sistemas y soluciones ERP.\\[0.15cm]
+\href{https://www.4founders.cl}{www.4founders.cl} $\cdot$ \href{mailto:contacto@4founders.cl}{contacto@4founders.cl}
+\end{center}
+
+\end{document}
